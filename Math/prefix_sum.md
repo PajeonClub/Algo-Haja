@@ -8,7 +8,7 @@
 ### 핵심 아이디어
 
 > 💡 미리 계산해둔 결과를 캐싱하여 중복 연산을 줄인다!
-* [L, R]의 합은 prefix_sum[R]-prefix_sum[L - 1] 로 구할 수 있다. 한 번의 연산으로 답을 구한다!
+* [L, R]의 합은 prefix_sum[R] - prefix_sum[L - 1] 로 구할 수 있다. 한 번의 연산으로 답을 구한다!
 
 ### 특징
 
@@ -23,7 +23,7 @@
 ### 심화 / 유형
 
 * 2차원 누적합: 특정 직사각형 영역의 합을 구할 때 사용
-* 이모스법: 특정 구간에 특정 갑을 더하는 기법
+* 이모스법: 특정 구간에 특정 값을 더하는 기법
 
 ### 시간복잡도
 
@@ -40,7 +40,7 @@ arr은 누적합을 구해야 하는 배열
 query는 (from, to) 형식으로 저장된 배열
  */
 
-fun solution(arr: IntArray, query: Array<Pair<Int, Int>>): List<Int> {
+fun getPrefixSum(arr: IntArray, query: Array<Pair<Int, Int>>): List<Int> {
     val prefixSum = IntArray(arr.size + 1) { 0 }
 
     // 누적 배열 초기화
@@ -75,7 +75,7 @@ fun solution(arr: IntArray, query: Array<Pair<Int, Int>>): List<Int> {
 
 using namespace std;
 
-vector<long long> solution(const vector<int>& arr, const vector<pair<int, int>>& query) {
+vector<long long> get_prefix_sum(const vector<int>& arr, const vector<pair<int, int>>& query) {
 
     vector<long long> prefixSum(arr.size() + 1, 0);
 
