@@ -63,7 +63,20 @@ fun getPrefixSum(arr: IntArray, query: Array<Pair<Int, Int>>): List<Int> {
 ### 구현 코드 (Python)
 
 ```python
+from typing import List, Tuple
 
+def get_prefix_sum(arr: List[int], query: List[Tuple[int, int]]) -> List[int]:
+
+    prefix_sum = [0] * (len(arr) + 1)
+
+    for i in range(len(arr)):
+        prefix_sum[i + 1] = prefix_sum[i] + arr[i]
+
+    result = []
+    for left, right in query:
+        result.append(prefix_sum[right] - prefix_sum[left - 1])
+
+    return result
 ```
 
 ### 구현 코드 (C++)
