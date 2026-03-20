@@ -80,6 +80,29 @@
 
 ```kotlin
 
+fun sieve(n: Int): BooleanArray {
+    if (n < 2) return booleanArrayOf()
+
+    val isPrime = BooleanArray(n + 1) { true }
+
+    isPrime[0] = false
+    isPrime[1] = false
+
+    var prime = 2
+    while (prime * prime <= n) {
+        if (isPrime[prime]) {
+            var composite = prime * prime
+            while (composite <= n) {
+                isPrime[composite] = false
+                composite += prime
+            }
+        }
+        prime++
+    }
+
+    return isPrime
+}
+
 ```
 
 ### 구현 코드 (Python)
@@ -101,5 +124,28 @@ def sieve(n):
 ### 구현 코드 (C++)
 
 ```cpp
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<bool> sieve(int n) {
+    if (n < 2)
+        return vector<bool>();
+
+    vector<bool> is_prime(n + 1, true);
+
+    is_prime[0] = is_prime[1] = false;
+
+    for (int prime = 2; prime * prime <= n; prime++) {
+        if (is_prime[prime]) {
+            for (int composite = prime * prime; composite <= n; composite += prime) {
+                is_prime[composite] = false;
+            }
+        }
+    }
+    return is_prime;
+}
 
 ```
