@@ -14,8 +14,10 @@
 
 1. 탐색 범위의 왼쪽 끝(left)과 오른쪽 끝(right)을 정한다.
 2. 중간값(mid = (left + right) / 2)을 확인한다. 
-3. 중간값이 찾고자 하는 값(target)보다 크면, target은 왼쪽에 있으므로 right = mid - 1로 줄인다. 
-4. 중간값이 target보다 작으면, target은 오른쪽에 있으므로 left = mid + 1로 줄인다. 
+3. 중간값이 찾고자 하는 값(target)보다 크면, target은 왼쪽에 있으므로 right = mid - 1로 줄인다.
+    ![binary-search-1.png](binary-search-1.png)
+4. 중간값이 target보다 작으면, target은 오른쪽에 있으므로 left = mid + 1로 줄인다.
+   ![binary-search.png](binary-search-2.png)
 5. 값을 찾거나, 탐색 범위가 소진될 때(left > right)까지 반복한다.
 
 ### 특징
