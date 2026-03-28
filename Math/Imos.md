@@ -66,7 +66,7 @@
 
 ### 구현 코드 (Python)
 
-```cpp
+```python
 def apply_range_updates(values, operations):
     n = len(values)
     diff = [0] * (n + 2)
