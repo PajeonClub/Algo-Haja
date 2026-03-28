@@ -61,7 +61,22 @@
 ### 구현 코드 (Python)
 
 ```cpp
+def apply_range_updates(values, operations):
+    n = len(values)
+    diff = [0] * (n + 2)
 
+    # 1. mark changes
+    for left, right, increment in operations:
+        diff[left] += increment
+        diff[right + 1] -= increment
+
+    # 2. restore actual values via prefix sum
+    current = 0
+    for i in range(n):
+        current += diff[i]
+        values[i] += current
+
+    return values
 ```
 
 ### 구현 코드 (C++)
