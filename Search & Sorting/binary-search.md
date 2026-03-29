@@ -79,14 +79,31 @@ fun binarySearch(arr: IntArray, target: Int): Int {
 
 ### 구현 코드 (Python)
 
-```cpp
+```python
+def binary_search(arr, target):
+    left, right = 0, len(arr)-1
+    while left <= right:
+        mid = (left+right)//2
+        if arr[mid] == target:
+            return True
+        elif  arr[mid] < target:
+            left=mid+1
+        else:
+            right=mid-1
+    return False
 
-bool binary_search(arr.begin(), arr.end(), target)
+# python에는 bisect library를 통해 동일 기능 사용 가능!
 
+import bisect
+def binary_search(arr, target):
+    idx=bisect.bisect_left(arr, target)
+    return idx < len(arr) and arr[idx]==target
 ```
 
 ### 구현 코드 (C++)
 
 ```cpp
+
+bool binary_search(arr.begin(), arr.end(), target)
 
 ```
