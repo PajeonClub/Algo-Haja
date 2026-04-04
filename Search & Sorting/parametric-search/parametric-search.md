@@ -38,7 +38,7 @@
     - 나무 자르기 (2805)
     - 랜선 자르기 (1654)
     - 공유기 설치 (2110)
-    
+
 ### 시간복잡도
 
 <aside>
@@ -58,7 +58,19 @@
 ### 구현 코드 (Python)
 
 ```python
+def parametric_search(left, right, condition):
+    answer = None
 
+    while left <= right:
+        mid = (left+right)//2
+        
+        if condition(mid):
+            answer = mid
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return answer
 ```
 
 ### 구현 코드 (C++)
